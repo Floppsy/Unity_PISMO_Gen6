@@ -424,6 +424,348 @@ HP imaš 40, mane 26,5.
 
 
 
+Vaši zadatci:
+1.)Igrač ima 16 healtha. U borbi protiv 10 neprijatelja odluči koristiti svoj štit koji uspješno blokira 70 % štete. Igrač u prvom naletu se uspije riješiti 3 neprijatelja, ali jedan od preostalih  ga pogodi toljagom. Zbog štita igrač primi samo jedan point štete, a štiti postane 10 % manje efiksan. Potom igrač sredi i ostale neprijatelje i dobije level, pa mu se zbog toga health uveća za onoliko % koliko štit blokira štete. Napiši programski, ako health može biti samo cijeli broj.
+
+int HP = 16;
+float shield = 0.7f;
+int damage = 1;
+int enemy = 10;
+
+enemy -= 3;
+HP -= 1;
+shield -= 0.1f;
+enemy -= enemy;
+HP += (int)(HP*shield);
+
+2.) Na početku igre igrač ima 100 HP-a i 100 mane. Ima mač koji po udarcu radi 30 dmg-a, a troši 15 mane. Dolazi do trola koji udarcem radi 40 dmg-a i ima 120 Hp-a. Trol udara igrača 2 puta. Zatim igrač udara trola 3 puta. Koliko Hp-a i mane ima igrač, a koliko Hp-a trol?
+
+int igracHP = 100;
+int igracMana = 100;
+int igracMacDmg = 30;
+int igracMacMana = 15;
+int trolHP = 120;
+int trolDmg = 40;
+
+igracHP -= 2 * trolDmg; //20
+trolHP -= 3 * igracMacDmg; //30
+igracMana -= 3 * igracMacMana; //55
+
+Igrač na kraju ima 20HP-a i 55 mane, a trol 30 HP-a.
+
+3.) Igrač ima 100 max Hp. Papa mu je dao buff od kojeg dobije 30% max Hp-a. Napadne ga vukodlak i napravi mu 30% trenutačnog damagea, Koliko je Hp-a ostalo playeru?
+
+int hp = 100;
+
+hp += (int)(hp * 0.3f); //130
+hp -= (int)(hp * 0.3f); //91
+
+Ostalo mu je 91 hp
+
+4.) Player ima 100 HP-a, a dva neprijatelja
+ protiv kojih se bori imaju svaki po 50
+ Hp-a. Player baci spell na prvog neprijatelja dva puta, na drugog pet puta. Damage playerovog spella je 10. Neprijatelj 1 pogodi playera dva puta, nanese mu HP damage od 20 po pogotku. Neprijatelj 2 pogodi playera jedan put , nanese mu damage od 20. Koliko HP-a imaju player i neprijatelji nakon borbe?
+
+int playerHP = 100;
+int enemyHP1 = 50;
+int enemyHP2 = 50;
+int playerSpellDamage = 10;
+int enemySpellDamage= 20;
+
+playerHP -= 2 * enemySpellDamage; // 60
+playerHP -= enemySpellDamage; // 40
+enemyHP1 = 2 * playerSpellDamage; // 30
+enemyHP2 = 5 * playerSpellDamage; // 0
+
+
+Player ima 40 HP-a, prvi neprijatelj 30 Hp-a a drugi 0 Hp-a nakon borbe.
+
+ 
+**PISANJE KOMENTARA**
+- Obavezno
+- koristi se za druge ljude kada čitaju vaš kod
+- Korisno ako neko vrijeme niste čitali kod
+- Programeri koji ne koriste komentare kažu "Prvo smo Bog i ja znali kako radi ovaj kod, sada zna samo Bog"
+- Komentari se pišu sa "//" i pišete ih iznad ili u redu naredbe/linije/metode na koju se odnose
+- Komentiranje više redova od jednput
+
+npr. 
+
+int health = 100; // varijabla za Health
+int dmg = 25; //varijabla za dmg od enemy zombija
+//varijabla za dmg od enemy vampira
+int dmg2 = 30;
+
+npr. Komentiranje više redova - koristi se kada kod radi, ali se našao/traži se bolji način pa ga se zakomentira da se ne odvija u programu
+
+/*
+float Bana = 89f;
+
+Bana = Bana*2 - 45 + 3.9f;
+*/
+
+35. Iskomentirajte i riješite zadatak:
+- Max HP je 100, body shoot je 20 damage. Vaš lik ima 89 HP na početku borbe i odmah te neprijatelj pogodi "body shoot". Potom padneš i izgubiš 2% HP-a i usput te neki NPC nabije i napraviti damage u iznosu od 8% maxHP-a. Regenerira ti se HP na max, ali te opet neprijatelj pogodi "body shoot" i head shoot koji je duplo veći od body shoota. Potom je NPC se zbugao i nanio ti istu štetu kao i prije.
+
+float hp = 89f; //trenutni hp
+int maxHP = 100; //maksimalni iznos hp
+int bodyS = 20; //Iznos damage od body shoota
+int headS = bodyS * 2; //iznos damage od head shoota koji je duplo veći od body shoota
+
+hp -= bodyShoot; //Igrač je primio body shoot damage i pao na 69 HP
+hp *= 0.98f; //Igrač je pao i gubi 2% HP
+hp -= 0.08f * maxHP; //NPC nanosi štetu igraču od 8% maksimalnog hp-a
+hp = maxHP; //igrač se regenerira na makismalni hp
+hp -= bodyS; //Igrač je primio body shoot damage i pao na 80 HP
+hp -= headS; //Igrač je primio head shoot damage i pao na 40 HP
+hp -= 0.08f * maxHP; //NPC nanosi štetu igraču od 8% maksimalnog (8 bodova) hp-a igrač je pao na 32 HP
+
+//Igrač ima na kraju 32 hp
+
+
+36.) Pri rezultatu 100/90 domacini su dali jos 3 kosa do kraja utakmice. A gosti su dali 5 koseva. Koliki je bio rezultat na kraju utakmice ako znam da jedan koš vrijedi 2 boda.
+
+int domaci = 100; //broj bodova domacih
+int gosti = 90; // broj bodova gostiju
+int bodPK = 2; //broj bodova koliko vrijedi koš (bodova po košu)
+
+domaci += bodPK * 3; //domacima dodajemo 6 bodova i sad imaju 106
+gosti += bodPK * 5; //gostima dodajemo 10 bodova i sad imaju 100
+
+//Rezultat je bio 106/100, pobjedili su domaci
+
+
+37.) Cwekii ima 20 debila na unity edukacije od kojih mora napraviti game developera, 5 debila odustaje od edukacije, 3 debila se prebacuju sa blendera, ali od pridošlica samo dvojica završavaju. Koliko je game developera Cwekii napravio?
+
+int debili = 20; //početni broj ljudi/debila na edukaciji
+int odustali = 5; //broj odustalih ljudi/debila sa edukacije
+int pridoslice = 3; //broj ljudi prebacenih sa blendera na unity
+int gameDevelopera; //broj uspijesno zavrsenih sa edukacije
+
+debila -= odustali; //oduzimanje odustalih sa edukacije
+debili += pridoslice; //dolazak pridoslica sa blender edukacije na unity
+debili--; //pridošlica samo dvojica završavaju
+gameDevelopera = debili; //debili su sada postali game developeri!
+
+//Na kraju je edukaciju završilo uspiješno 17 ljudi
+
+DZ 38 zadatak zakomentirati
+
+38.) Igrac ima 100 max hp i 50 movement pointsa, također ima 1 potion koji ga heala 10% max HP. Ima dvije vrste napada specijalni koji radi 50 dmg i troši 30 movement pointa i obicni napad koji radi 30 dmg i ne kosta nista. Monster ima 126 HP-a i tuce za 30 dmg. Tuku se naizmjenicno svako jedan napad po krugu, a potion ne troši krug i igrač napada prvi. Combat je gotov kada igrač ili monster umru. Tko umre prvi ako igrač koristi sve što mu je na raspolaganju?
+
+
+float maxHP = 100f;
+float currentHp = maxHP;
+float movementPoints = 50;
+float effectPotion = maxHP * 0.1f;
+int potion = 1;
+int specialAtt = 50;
+int specialAttCost = 30;
+int basicAtt = 30;
+int monsterHP = 126;
+int monsterDmg = 30;
+
+//Krug Prvi
+monsterHP -= specialAtt; //126 - 50 = 76
+movementPoints -= specialAttCost; //50 - 30 = 20
+currentHP -= monsterDmg; //100 - 30 = 70
+
+//Krug Drugi
+currentHP += effectPotion; //70 + 10 = 80
+potion--;
+monsterHP -= basicAtt; //76 - 30 = 46
+currentHP -= monsterDmg; //80 - 30 = 50
+
+//Krug Treći
+monsterHP -= basicAtt; //46 - 30 = 16
+currentHP -= monsterDmg; //50 - 30 = 20
+
+//Krug Četvrti
+monsterHP -= basicAtt; //16 - 30 = - 14
+//KRAJ!
+
+//Prvi umire monster
+
+**UVIJETI**
+Što je uvijet?
+- Uvijet je skup riječi koje govore što se treba ispuniti kako bi se izvršio niz/red naredbi
+-Primjeri uvijeta:
+	- AKO - if
+	- DOK - while
+	- Kada - when (ne postoji, primjera radi
+	- ZA - for
+- kako se zadovoljava uvijet? Sa provjerom znakova vrijednosti:
+== jednako je - provjerava jesu li vrijednosti jednake
+= dodjeljuje vrijednost
+!= različito je
+|| (alt Gr + W) ili - ili je jedna vrijednost točna/istinita ili druga
+&& i - obje vrijednosti moraju biti točne/istinite kako bi bilo točno
+> veće od
+< manje od
+<= manje ili jednako od
+>= veće ili jednako od
+
+primjeri na if petlji:
+
+if(1 + 1 == 2) --> točno
+if(2 + 3 != 4) --> točno
+if(18 > 19) --> Laž
+if(21 <= 21) --> točno
+
+kao da piše:
+istina -> 1+1=2
+laž -> 5+5=11
+if(istina || laž) -> istina
+if(istina || istina) -> istina
+if(laž || istina) -> istina
+if(laž || laž) -> istina
+if(istina && istina) -> istina
+if(istina && laž) -> laž
+if(laž && laž) -> laž
+
+if(istina && istina || laž) -> istina
+
+
+39.) x je veličine 8, a y je veličine 13, ako je njihov zbroj manji od 50 neka se x poveća za samoga sebe, a ako je zbroj veći ili jednak 50 neka se y poveća za samoga sebe, a u svim ostalim slučajevima x se treba pomnožiti za y i spremiti u x.
+
+int x = 8;
+int y = 13;
+
+if(x + y < 50)
+{
+	x += x;
+}
+
+else if(x + y >= 50)
+{
+	y += y;
+}
+
+else
+{
+	x *= y;
+}
+
+
+40.) Vrijednost x je -3.6, a vrijednost y je 10. Ako je njihov umnožak veći od 100 neka se x uveća za taj umnožak, ako je manji od 100 neka se y uveća za taj umnožak, a ako je umnožak jednak 100 neka se x i y uvećaju za sami sebe.
+
+float x = -3.6f;
+float y = 10f;
+
+if(x * y > 100)
+{
+	x += x * y;
+}
+
+else if(x * y < 100)
+{
+	y += x * y;
+}
+
+else if(x * y == 100)
+{
+	x += x;
+	y += y;	
+}
+
+41.) Igračev health je 30. Regeneracija ce mu krenuti ako mu je health pao ispod 20 i povećati će se za 12. 
+
+int health = 30;
+int healthRegen = 12;
+
+if(health < 20)
+{
+	health += healthRegen;
+}
+
+42.) Igračev health je 31. Regeneracija ce mu krenuti ako mu je health pao ispod 20 i povećati će se za 12. Igrac prvo prima dmg od 9. Zatim je popio potion koji mu je vratio 10 hp i potom je primio critical strike koji mu je skinuo 26 hp. Pitanje je jel se igracu dogodio health regen i ako je kada? Napisati programski i oznacite komentarima kada se dogodila regeneracija.
+
+int playerHP = 31;
+int regenTresh = 20;
+int regenHp = 12;
+int dmg = 9;
+int crticalStrike = 26;
+int potionHp = 10;
+
+if(playerHP < regenTresh)
+{
+	playerHP += regenHP;
+}
+
+playerHP -= dmg;
+playerHP += potionHp;
+playerHP -= criticalHp;
+
+
+
+43.) Igrac jedan i dva su imali 100 hp. Igrac dva je udario igraca jedan te mu oduzeo 25 hp, igrac jedan kontra napadom oštečuje igrača dva za 14 hp, te regenerira sebe za 10 hp. Koliko koji igrac ima hp?
+
+int playerOne = 100;
+int playerTwo = 100;
+
+playerOne -= 25;
+playerTwo -= 14;
+playerOne += 10;
+
+44.) Pokemon evoluira kada dođe na 16 level. Za doći na 16 level potrebno mu je ukupno 4561 XP. Početni level mu je 1 i ima 0 xp. Odradio je 25 borbi gdje je dobio 25 xp po borbi i potom još 25 borbi gdje je u svakoj dobio 93 xp. Napravite provjeru imali dovoljno xp za evoluciju, ako nema gubi sav xp, a ako ima onda mu je level 16.
+
+int xp;
+int evolveXP = 4561;
+int currentLevel = 1;
+int fightOneXP = 25;
+int fightTwoXP = 93;
+
+xp += 25 * fightOneXP; //625
+xp += 25 * fightTwoXP; //2325 + 625 = 2950
+
+if(xp >= evolveXP)
+{
+	currentLevel = 16;
+}
+
+else
+{
+	xp = 0;
+}
+
+45.) Kapetan Miki ima 10 HP, ako primi damage veći od 5, a da ga to neće ubiti onda se Miki naljuti i njegov HP bude 20.
+
+int mikiHp = 10;
+int dmg;
+
+if(dmg > 5 && mikiHp > dmg) // mikiHp > dmg > 5
+{
+	mikiHp = 20;
+}
+
+46.) A je jacine 5, a B je jacine 17 ako je njihova razlika veca od 10 neka se broj A poveca za B, a ako je manja ili jednaka neka se B poveca za A
+
+int A = 5;
+int B = 17;
+
+if(A - B > 10 || B - A > 10)
+{
+	A += B;
+}
+else if(A - B <= 10 || B - A <= 10)
+{
+	B += A;
+}
+
+47.) Imate varijablu X. Ako je X veći od 10, neka se X uveća za 20, a ako je X manji od 10 neka se umanji za 9. U ostalim slučajevima neka se X pomnoži sam sa sobom.
+
+48.) U šumi je 6 elfova, 5 gnomova i 10 orkova, ako je broj elfova i gnomova veći ili jednak orkovima, broj elfova se uveća za njihov broj (poduplaju se), a ako je njihov zbroj manji, orkovi pojedu 50% gnomova i 20% elfova. NAPOMENA, ne može se pojesti decimalno elfova niti gnomova.
+
+
+49.) Pocetna vrijednost varijable je 830, X je 69, a Y je 538. ukoliko je umnožak x i y manji od 1000 i varijabla vrijednosti 830 zbrojena sa y je veca od 1000 , neka se varijabla sa pocetnom vrijednoscu 830 smanji za 100. Ukoliko je umnozak veci (samo to je uvije), neka se pocetna varijabla poveca za 100. U svim ostalim slucajevima neka se pocetna varijabla pomnozi za 100.
+
+50.) Super Mario je imao 3 života na početku. izgubio je 2. Dobio je jedan život tokom nivoa i dobio jedan nakon što je prešao nivo. Napiši programski.
+
+51.) X je 15, Y je 100, ako je x izmedu 13 i 19 (ukljceni su i 13 i 19) povecaj y za 20%. A ako nije onda y smanji za 13%. Ne smiju se spremati vrijednosti u decimalnom zapisu.
+
+52.) Cilj igre je skupiti 4 objekta, prsten, pehar, zlatnik i dijamant. Sa svakim skupljenim itemom aktivira se jedan boss, a kada se skupi svih 4 itema, igra je pređena. Odmah skupljate prsten, te dalje tim redosljedom. Sa koliko bossova ste se borili dok niste prešli igru?
+
+
 
 
 
