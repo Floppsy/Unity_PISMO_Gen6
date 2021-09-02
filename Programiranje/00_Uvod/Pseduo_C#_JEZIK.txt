@@ -1044,16 +1044,305 @@ else
 	friendTwo -= bugatti / 3;
 }
 
+---------------------------------------------
+
+float me = 15f;
+float friendOne = 25f;
+float friendTwo = 10.5f;
+int bugatti = 2500000;
+
+if(friendOne > 2 * me || friendOne > 2 * friendTwo)
+{
+	friendOne -= bugatti * 0.5f;
+	me -= bugatti * 0.25f;
+	friendTwo -= bugatti * 0.25f;
+}
+else if(me > 2 * friendOne || me > 2 * friendTwo)
+{
+	me -= bugatti * 0.5f;
+	friendOne -= bugatti * 0.25f;
+	friendTwo -= bugatti * 0.25f;
+}
+else if(friendTwo > 2 * me || friendTwo > 2 * friendOne)
+{
+	friendTwo -= bugatti * 0.5f;
+	me -= bugatti * 0.25f;
+	friendOne -= bugatti * 0.25f;
+}
+else
+{
+	friendTwo -= bugatti * 0.33f;
+	me -= bugatti * 0.33f;
+	friendOne -= bugatti*0.33f;
+}
+
 
 57.) x je 50, y je 100, ako je njihov zboj veci od trostruke vrijednosti x onda neka se x podupla, a ako je manji neka se y udvostruci, a ako su jednaki neka se oba kvadriraju.
+
+int x = 50;
+int y = 100;
+
+if(x + y > x * 3)
+{
+	x *= 2;
+}
+
+else if(x + y < x * 3)
+{
+	y *= 2;
+}
+
+else if(x + y == x * 3)
+{
+	x *= x;
+	y *= y;
+}
 
 
 58.) igrac ima 100 HP. Ako mu HP padne ispod 75 regenrira mu se health za 10, a ako padne ispod 25 i igrac ostane ziv, regenerira mu se za 25 HP. Igrac prvo primi dmg od 55, a zatim opet primi dmg od 55. Koliko hp ima igrac?
 
+int hp=100;
+
+if (hp < 75 && hp >= 25); 
+{ 
+	hp += 10;  
+}
+
+else if (hp < 25 && hp > 0);
+{
+	hp += 25;
+}
+
+hp -= 55; //45
+//+10=55
+hp -= 55; //0
+// Krepo
+
+
+
 
 59.) Prvi vozac ima 10 kockica, a drugi ima 13. Kada se oni sudare onaj koji ima manje ukrade drugome jednu kockicu.
 
+int x = 10;
+int y = 13;
+
+if(x > y)
+{
+	y++;
+	x--;
+}
+
+else if(y > x)
+{
+	y--;
+	x++;
+}
+
+
 60.) Varijabla x je 15, varijabla y je dva puta veca od x. Ako je zbroj x i y manji od 50, x se poveca za y. Ako je zbroj x i y veci od 50 od x se oduzima y, a ako je zbroj jednak onda x dobiva y vrijednost.
+
+
+int x = 15;
+int y = x * 2;
+
+if(x + y < 50)
+{
+	x += y;
+}
+else if(x + y > 50)
+{
+	x -= y;
+}
+else if(x + y == 50)
+{
+	x = y;
+}
+
+*VAR vrsta varijable
+
+var:
+- vrsta varijable koja se prilagođava unosu
+- ne može se definirati u početku
+- koristi se samo unutar neke petlje/metode za privremenu vrijednost
+
+npr.
+Neka se rezultat množenja x i y poveća za 10 ako je x veći od 5 i spremite u varijablu rez, ali to odradite u 2 koraka
+
+float x = 10.5f;
+int y = 77;
+float rez;
+
+
+if(x > 5)
+{
+	var privremeno = x * y;
+	rez = privremeno + 10;
+}
+
+
+*Metode*
+- metoda je skup naredbi koje se trebaju odraditi u određenim uvijetima i intervalu
+
+Ključne metode u Unityu:
+
+- Awake - odvija se prije 0 (nultog) framea
+	- događa se prije stvaranja bilokakvih objekata na sceni
+	- izvršava se samo jedanput
+
+- Start - izvršava se netom prije prvog framea
+	- izvršava se samo jedanput
+
+- Update - Svaki frame se jednom izvrši
+
+-kako se piše metoda:
+
+void nazivMetode()
+{
+	linija naredbe;
+}
+
+* vidljivost metoda/varijabli
+- public - ispred vrste varijable kojoj omugucavamo da mi kao developeri možemo unositi i mjenjati vrijednost varijable u Unity Inspectoru ili pozivati iz drugih skripti
+npr. public float primjer = 4.7f;
+
+- private - stavlje se ispred varijable i onemogucava vidjljivost i promjene vrijednosti varijable iz Unity Inspectora i pozivanje iz drugi skripti. Ako ispred varijable/metode ne piše ništa, automatski je private.
+npr. private int primeric = 5; ili int primeric = 5;
+
+*Debugiranje*
+- postupak pružanja informacija developeru ima li greške i koja je greška ili ispis rada programa u konzoli
+
+- Osnovo - Debug.Log("")
+- Debug -> debugiraj (provjeri)
+- Log -> ispiši u konzoli
+- ("") - unutar navodnika tekst za ispis, poslje može varijabla za ispis (spajanje se radi sa pomoću znaka +)
+
+npr. 1.
+public int x;
+public int y;
+
+void Start()
+{
+	var rez = x * y;
+	Debug.Log("Rezultat je" + rez);
+}
+
+npr. 2.
+
+void Start()
+{
+	Debug.Log("Odvila se start metoda");
+}
+
+Napomena za zadatke 61.- ako ne pise da je javna varijabla onda je privatna
+
+61.) U startu neka se zbroje 2 javna broja. I neka se ispiše u konzoli njihov zbroj.
+
+public int x;
+public int y;
+
+void Start()
+{
+	var zbroj = x + y; //int zbroj
+	Debug.Log(zbroj); //Debug.Log(x + y);
+}
+
+62.) Zbrojite u startu x koji je 17.2 i y koji je javan broj. Neka se rezultat sprema u varijablu "banana" i neka se ispiše u konzoli.
+
+float x = 17.2f;
+public flaot y;
+float banana;
+
+void Start()
+{
+	banana = x + y;
+	Debug.Log(banana);
+}
+
+63.) Povecajte x koji je 5 za 5 svaki frame.
+
+int x = 5;
+
+void Update()
+{
+	x += 5;
+}
+
+64.) Neka je x 6, a y je 7 i njihov zbroj neka se izracuna u startu, a onda svaki frame neka se rezultat uveca za x
+
+int x = 6;
+int y = 7;
+int zbroj;
+
+void Start()
+{
+	zbroj = x + y;
+}
+
+void Update()
+{
+	zbroj += x;
+}
+
+65.) Neka je x 8, a y je javni broj i njihov zbroj neka se izracuna u startu, a onda svaki frame neka se rezultat poveca za polovicu x varijable.
+
+int x = 8;
+public int y;
+int rez;
+
+void Start()
+{
+	rez = x + y;
+}
+
+void Update()
+{
+	rez += x / 2;
+}
+
+66.) Ako je vrijednost x -3.6, a vrijednost y je javna. Ako je zbroj veci od 20 neka se ispiše "To legendo", a ako je manji ili jednak neka se ispiše "Falia si budalo"
+
+float x = -3.6f;
+public int y;
+
+void Awake()
+{
+	if(x + y > 20)
+	{
+		Debug.Log("To legendo");
+	}
+	
+	else if(x + y <= 20)
+	{
+		Debug.Log("Falia si budalo");
+	}
+}
+
+
+
+
+67.) U startu zbrojite dvije javne varijable od kojih se jedna zove "y". Neka se svaki frame x povecava za 5% iznosa y varijable. Svaki frame ponovo zbrojite x i y te ispišite vrijednost zbroja.
+
+
+68.) Neka se u metodi start ispiše "Ja sam Start", u metodi awake "Ja sam mali Awake), te u konacnici neka se svaki frame ispisuje "Moje ime je medvjedić Lino".
+
+69.) Noice ;)
+
+70.) Povecajte javnu varijablu X za jedan svaki frame. Neka se također svaki frame ispiše "Ja imam " + x + " godina".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
