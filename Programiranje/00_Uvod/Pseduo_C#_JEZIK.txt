@@ -878,15 +878,172 @@ Ukupno smo se borili sa 4 bossa
 
 53.) Vrijednost "nice" je 69, a vrijednost "blaze" je 420, ako je zbroj tih vrijednosti pomnožen sa 2 veći od 1300 neka se nice podupla, a ako je manji ili jednak 1250 neka se blaze podupla.
 
+int nice = 69;
+int blaze = 420;
 
+if((nice + blaze) * 2 > 1300)
+{
+	nice *= 2;
+}
+
+else if((nice + blaze) * 2 <= 1250)
+{
+	blaze *= 2;
+}
 
 54.) Programski zapisi 11.79 + 9.01 = 19.80;
 
+float x = 11.79f;
+flaot y = 9.01f;
+float z = 19.8f; //19.80
 
-55.) igrac HP-a 100 je primio dmg 23. Popijemo potion koji nam vrati 15 hp. Napisi programski.
+if(x + y > z)
+{
+	float razlika = z - x - y;
+	x += razlika;
+}
 
+else if(x + y < z)
+{
+	float razlika = z - x - y;
+	x += razlika;
+}
+
+
+55.) Igrac HP-a 100 je primio dmg 23. Popijemo potion koji nam vrati 15 hp. Napisi programski.
+
+int HP = 100;
+int dmg = 23;
+int potion = 15;
+
+HP -= dmg;
+HP += potion;
 
 56.) Vi imate 15€, a vaš frend 25€ i vaš treći frend ima 10.5€. Vi takvi siromasi se odlučite kupiti Bugatti Vayrona koji košta 2500000€. Ako osoba koja ima najviše novaca ima duplo više novaca od osobe koja ima najmanje novaca, onda on plaća pola cijene. A ostala dvojica djele drugu polovicu po pola. Ako to nije slučaj onda svi plačaju jednak iznos. Napisite koliko svakome pojedinacno jos fali novaca.
+
+float me = 15f;
+float friendOne = 25f;
+float friendTwo = 10.5f;
+int bugatti = 2500000;
+
+if(me > friendOne && me > friendTwo)
+{
+	if(friendOne < friendTwo)
+	{
+		if(friendOne * 2 < me)
+		{
+			me -= bugatti * 0.5f;
+			friendOne -= bugatti * 0.25f;
+			friendTwo -= bugatti * 0.25f;
+		}
+		
+		else
+		{
+			me -= bugatti / 3;
+			friendOne -= bugatti / 3;
+			friendTwo -= bugatti / 3;
+		}
+	}
+
+	else if(friendTwo < friendOne)
+	{
+		if(friendTwo * 2 < me)
+		{
+			me -= bugatti * 0.5f;
+			friendOne -= bugatti * 0.25f;
+			friendTwo -= bugatti * 0.25f;
+		}
+		
+		else
+		{
+			me -= bugatti / 3;
+			friendOne -= bugatti / 3;
+			friendTwo -= bugatti / 3;
+		}
+	}
+}
+
+else if(friendOne > me && friendOne > friendTwo)
+{
+	if(me < friendTwo)
+	{
+		if(me * 2 < friendOne)
+		{
+			friendOne -= bugatti * 0.5f;
+			me -= bugatti * 0.25f;
+			friendTwo -= bugatti * 0.25f;
+		}
+		
+		else
+		{
+			me -= bugatti / 3;
+			friendOne -= bugatti / 3;
+			friendTwo -= bugatti / 3;
+		}
+	}
+
+	else if(friendTwo < me)
+	{
+		if(friendTwo * 2 < friendOne)
+		{
+			frienedOne -= bugatti * 0.5f;
+			me -= bugatti * 0.25f;
+			friendTwo -= bugatti * 0.25f;
+		}
+		
+		else
+		{
+			me -= bugatti / 3;
+			friendOne -= bugatti / 3;
+			friendTwo -= bugatti / 3;
+		}
+	}
+}
+
+else if(friendTwo > me && friendTwo > friendOne)
+{
+	if(me < friendOne)
+	{
+		if(me * 2 < friendTwo)
+		{
+			friendTwo -= bugatti * 0.5f;
+			me -= bugatti * 0.25f;
+			friendOne -= bugatti * 0.25f;
+		}
+		
+		else
+		{
+			me -= bugatti / 3;
+			friendOne -= bugatti / 3;
+			friendTwo -= bugatti / 3;
+		}
+	}
+
+	else if(friendOne < me)
+	{
+		if(friendOne * 2 < friendTwo)
+		{
+			frienedTwo -= bugatti * 0.5f;
+			me -= bugatti * 0.25f;
+			friendOne -= bugatti * 0.25f;
+		}
+		
+		else
+		{
+			me -= bugatti / 3;
+			friendOne -= bugatti / 3;
+			friendTwo -= bugatti / 3;
+		}
+	}
+}
+
+else
+{
+	me -= bugatti / 3;
+	friendOne -= bugatti / 3;
+	friendTwo -= bugatti / 3;
+}
+
 
 57.) x je 50, y je 100, ako je njihov zboj veci od trostruke vrijednosti x onda neka se x podupla, a ako je manji neka se y udvostruci, a ako su jednaki neka se oba kvadriraju.
 
@@ -896,7 +1053,7 @@ Ukupno smo se borili sa 4 bossa
 
 59.) Prvi vozac ima 10 kockica, a drugi ima 13. Kada se oni sudare onaj koji ima manje ukrade drugome jednu kockicu.
 
-
+60.) Varijabla x je 15, varijabla y je dva puta veca od x. Ako je zbroj x i y manji od 50, x se poveca za y. Ako je zbroj x i y veci od 50 od x se oduzima y, a ako je zbroj jednak onda x dobiva y vrijednost.
 
 
 
