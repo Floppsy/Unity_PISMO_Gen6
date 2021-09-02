@@ -754,17 +754,139 @@ else if(A - B <= 10 || B - A <= 10)
 
 47.) Imate varijablu X. Ako je X veći od 10, neka se X uveća za 20, a ako je X manji od 10 neka se umanji za 9. U ostalim slučajevima neka se X pomnoži sam sa sobom.
 
-48.) U šumi je 6 elfova, 5 gnomova i 10 orkova, ako je broj elfova i gnomova veći ili jednak orkovima, broj elfova se uveća za njihov broj (poduplaju se), a ako je njihov zbroj manji, orkovi pojedu 50% gnomova i 20% elfova. NAPOMENA, ne može se pojesti decimalno elfova niti gnomova.
+int x;
+
+if(x > 10)
+{
+	x += 20;
+}
+
+else if(x < 10)
+{
+	x -= 9;
+}
+
+else
+{
+	x *= x;
+}
+
+48.) U šumi je 6 elfova, 5 gnomova i 10 orkova, ako je zbroj elfova i gnomova veći ili jednak orkovima, broj elfova se uveća za njihov broj (poduplaju se), a ako je njihov zbroj manji, orkovi pojedu 50% gnomova i 20% elfova. NAPOMENA, ne može se pojesti decimalno elfova niti gnomova.
+
+int elfs = 6;
+int gnoms = 5;
+int orcs = 10;
+
+if(elfs + gnoms >= orcs)
+{
+	elfs *= 2;
+}
+
+else if(elfs + gnoms < orcs)
+{
+	gnoms = (int)(gnoms * 0.5f);
+	elfs = (int)(elfs * 0.8f);
+}
 
 
-49.) Pocetna vrijednost varijable je 830, X je 69, a Y je 538. ukoliko je umnožak x i y manji od 1000 i varijabla vrijednosti 830 zbrojena sa y je veca od 1000 , neka se varijabla sa pocetnom vrijednoscu 830 smanji za 100. Ukoliko je umnozak veci (samo to je uvije), neka se pocetna varijabla poveca za 100. U svim ostalim slucajevima neka se pocetna varijabla pomnozi za 100.
+49.) Pocetna vrijednost varijable je 830, X je 69, a Y je 538. ukoliko je umnožak x i y manji od 1000 i varijabla vrijednosti 830 zbrojena sa y je veca od 1000 , neka se varijabla sa pocetnom vrijednoscu 830 smanji za 100. Ukoliko je umnozak veci (samo to je uvijet), neka se pocetna varijabla poveca za 100. U svim ostalim slucajevima neka se pocetna varijabla pomnozi za 100.
 
-50.) Super Mario je imao 3 života na početku. izgubio je 2. Dobio je jedan život tokom nivoa i dobio jedan nakon što je prešao nivo. Napiši programski.
+int x = 69;
+int y = 538;
+int pocVar = 830;
 
-51.) X je 15, Y je 100, ako je x izmedu 13 i 19 (ukljceni su i 13 i 19) povecaj y za 20%. A ako nije onda y smanji za 13%. Ne smiju se spremati vrijednosti u decimalnom zapisu.
+if(x * y < 1000 && pocVar + y > 1000)
+{
+	pocVar -= 100;
+}
+
+else if(x * y > 1000)
+{
+	pocVar += 100;
+}
+
+else 
+{
+	pocVar *= 100;
+}
+
+50.) Super Mario je imao 3 života na početku. Izgubio je 2. Dobio je jedan život tokom nivoa i dobio jedan nakon što je prešao nivo. Napiši programski.
+
+int marioLife = 3;
+
+marioLife -= 2;
+marioLife++;
+marioLife++;
+
+51.) X je 15, Y je 100, ako je X izmedu 13 i 19 (ukljceni su i 13 i 19) povecaj Y za 20%. A ako nije onda Y smanji za 13%. Ne smiju se spremati vrijednosti u decimalnom zapisu.
+
+int X = 15;
+int Y = 100;
+
+if( x >= 13 && x <= 19) //NE: 19 <= x >= 13
+{
+	y += (int)(0.2f * y);
+}
+
+else
+{
+	y -= (int)(0.13f * y);
+}
 
 52.) Cilj igre je skupiti 4 objekta, prsten, pehar, zlatnik i dijamant. Sa svakim skupljenim itemom aktivira se jedan boss, a kada se skupi svih 4 itema, igra je pređena. Odmah skupljate prsten, te dalje tim redosljedom. Sa koliko bossova ste se borili dok niste prešli igru?
 
+
+int items = 0;
+int itemsToCollect = 4;
+int prsten = 0;
+int pehar = 0;
+int zlatnik = 0;
+int dijamnt = 0;
+int boss = 0;
+
+prsten++;
+if(prsten == 1)
+{
+	boss++;
+	items++;
+}
+pehar++;
+if(pehar == 1)
+{
+	boss++;
+	items++;
+}
+zlatnik++;
+if(zlatnik == 1)
+{
+	boss++;
+	items++;
+}
+dijamant++;
+if(dijamant == 1)
+{
+	boss++;
+	items++;
+}
+
+if(items == itemsToCollect)
+{
+	//Kraj igre
+}
+
+Ukupno smo se borili sa 4 bossa
+
+53.) Vrijednost "nice" je 69, a vrijednost "blaze" je 420, ako je zbroj tih vrijednosti pomnožen sa 2 veći od 1300 neka se nice podupla, a ako je manji ili jednak 1250 neka se blaze podupla.
+
+
+
+54.) Programski zapisi 11.79 + 9.01 = 19.80;
+
+
+55.) igrac HP-a 100 je primio dmg 23. Popijemo potion koji nam vrati 15 hp. Napisi programski.
+
+
+56.) Vi imate 15€, a vaš frend 25€ i vaš treći frend ima 10.5€. Vi takvi siromasi se odlučite kupiti Bugatti Vayrona koji košta 2500000€. Ako osoba koja ima najviše novaca ima duplo više novaca od osobe koja ima najmanje novaca, onda on plaća pola cijene. A ostala dvojica djele drugu polovicu po pola. Ako to nije slučaj onda svi plačaju jednak iznos. Napisite koliko svakome pojedinacno jos fali novaca.
 
 
 
