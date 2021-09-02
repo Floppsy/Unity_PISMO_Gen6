@@ -888,7 +888,13 @@ Ukupno smo se borili sa 4 bossa
 
 56.) Vi imate 15€, a vaš frend 25€ i vaš treći frend ima 10.5€. Vi takvi siromasi se odlučite kupiti Bugatti Vayrona koji košta 2500000€. Ako osoba koja ima najviše novaca ima duplo više novaca od osobe koja ima najmanje novaca, onda on plaća pola cijene. A ostala dvojica djele drugu polovicu po pola. Ako to nije slučaj onda svi plačaju jednak iznos. Napisite koliko svakome pojedinacno jos fali novaca.
 
+57.) x je 50, y je 100, ako je njihov zboj veci od trostruke vrijednosti x onda neka se x podupla, a ako je manji neka se y udvostruci, a ako su jednaki neka se oba kvadriraju.
 
+
+58.) igrac ima 100 HP. Ako mu HP padne ispod 75 regenrira mu se health za 10, a ako padne ispod 25 i igrac ostane ziv, regenerira mu se za 25 HP. Igrac prvo primi dmg od 55, a zatim opet primi dmg od 55. Koliko hp ima igrac?
+
+
+59.) Prvi vozac ima 10 kockica, a drugi ima 13. Kada se oni sudare onaj koji ima manje ukrade drugome jednu kockicu.
 
 
 
