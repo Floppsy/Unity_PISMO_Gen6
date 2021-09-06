@@ -1923,23 +1923,46 @@ void Spawn()
 *Ponavljanje*
 86.) Kakav zapis ide u vrstu varijable int?
 
+Samo cijeli brojevi: 5, -3, 0
+
 87.) Kakav zapis ide u vrstu varijable float?
+
+Decimalni brojevi, ali mogu i cijeli sa .0: 0.6f, 2.0f, -3.0f, -68.13f, 0.0f
 
 88.) Kakav zapis ide u vrstu varijable bool?
 
+True ili false
+
 89.) Ako je int ostavljen prazan, vrijednost mu je?
 
+Null odnoso 0
+
 90.) Ako je bool ostavljen prazan, vrijednost mu je?
+
+Null odnosno false
 
 91.) Napišite programski matematicke zapise:
 5 * (22 - 11) / 8 = x
 9 * 7 * x / z = y
 x * 88 - 111 = z
 
+float x;
+float y;
+float z;
+
+void Start()
+{
+	x = 5 * (22-11) / 8;
+	z = x * 88 - 111;
+	y = 9 * 7 * x / z;
+}
+
+
+
 92.) Koja je razlika izmedu 3 standardne Unity metode sa primjerom funkcionalnosti iz pravih video igara: 
-a) Awake
-b) Start
-c) Update
+a) Awake - prije nultog frame, prije stvaranja objekata na sceni, npr. pokretanje loadinga, stvaranje sobe u multiplayeru, spawnanje enemya, spawanje iz base i timer spawnanja miniona u League of Legends
+b) Start - prije prvog framea, samo jednom, npr. Postavljanje healtha - pick up health/popijen potion Skyrim, zadan object što treba napraviti Dead Island
+c) Update - događa se na kraju svakog framea, npr. movement GTA, pucanje Call of Duty, broj enemya Serius Sam
 
 93.) Prepišite skriptu i prepravite greške i dodajte komentare:
 
@@ -1952,9 +1975,38 @@ void Start
 	z == nM * 2.5 - X;
 )
 
+----prepravak----
+
+int x = 11;
+float nm = 2.4f;
+float z = 0f;
+
+void Start()
+{
+	z = nm * 2.5f - x;
+}
+
 94.) x je javan broj koji je 100. Ispiši u konzoli sve parne brojeve od 0 do x.
 
+public int x = 100;
+
+void Start()
+{
+	for(int i = 0; i < x; i += 2)
+	{
+		Debug.Log(i);
+	}
+}
+
 95.) Napisi primjer for petlje.
+
+void Start()
+{
+	for(int i = 10; i >= 4; i--)
+	{
+		Debug.Log(i);
+	}
+}
 
 96.) Prepišite skriptu i prepravite greške te joj napišite komentare
 
@@ -1971,6 +2023,21 @@ void Update()
 		c_M -= 1,1f;
 	]
 
+-------Prepravljeni----------
+
+float X_X = 67f;
+public float xD;
+private float c_N = 99.54321f;
+
+void Update()
+{
+	if(X_X * xD - c_N >= 69.22f * 2)
+	{
+		X_X -= 19;
+		xD *= 1.2f;
+		c_N -= 1.1f;
+	}
+}
 
 97.) Prepišite skriptu i prepravite greške te joj napišite komentare
 
@@ -1991,6 +2058,96 @@ Void Update()
 {
 	y = y * Z * x:
 }
+
+------------Prepravljeni----------------------
+
+bool marmun = false;
+int x = 11;
+int z = 12;
+int y;
+
+void Start()
+{
+	if(x / 11 == 1 && z - 12 == 1)
+	{
+		marmun = true;
+		y = z * x;
+	}
+}
+
+void Update()
+{
+	y = y * z * x;
+}
+
+** NOVA VRSTA VARIJABLE **
+
+-string 
+
+string je tekstualni zapis, mogu se zapisivati rijeci, slova, brojevi i znakovi
+
+npr.
+
+string ime = "Pero";
+string prezime = "Peric";
+string datumRodenja = "19.1.2011";
+string visina = "189 cm";
+
+
+98.) Napišite skriptu koja ucitava upisane javne vrijednosti za igracevo ime, prezime, broj godina (int), visinu (int), te grad iz kojega dolazi. U metodi start se trebaju ispisati u konzoli sve njegove vrijednosti.
+npr. "Ja sam Marko Maric. Imam 28 godina, te sam visok 169 cm i dolazim iz mjesta koje se zove Špickovina!"
+
+public string ime;
+public string prezime;
+public string mjesto;
+public int godine;
+public int visina;
+
+void Start()
+{
+	Debug.Log("Ja sam " + ime + " " + prezime + ". Imam " + godine + " godina, te sam visok " + visina + " cm i dolazim iz mjesta koje se zove " + mjesto + "!");
+}
+
+99.) Napišite skriptu koja ucitava javne vrijednosti, zatim te podatke ispisuje u navedeni tekst:
+"Moje ime je _________ i ja dolazim iz grada koji se zove ___________, a višlji sam od covjeka koji se zove __________ za ______ cm". To znaci a morate imati u kodu ucitavanje 2 vrijednosti imena, 2 vrijednosti visine i 2 vrijednosti grada, te dvije solucije teksta ovisno o tome koji je lik višlji.
+
+public string ime1;
+public string ime2;
+public int visina1;
+public int visina2;
+public string grad1;
+public string grad2;
+
+void Start()
+{
+	if(visina1 > visina2)
+	{
+		int cm = visina1 - visina2;
+		Debug.Log("Moje ime je " + ime1 + " i ja dolazim iz grada koji se zove " + grad1 + ", a višlji sam od čovjeka koji se zove " + ime2 + " za " + cm + " cm.");
+	}
+
+	else if(visina2 > visina1)
+	{
+		Debug.Log("Moje ime je " + ime2 + " i ja dolazim iz grada koji se zove " + grad2 + ", a višlji sam od čovjeka koji se zove " + ime1 + " za " + (visina2 - visina1) + " cm.");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
