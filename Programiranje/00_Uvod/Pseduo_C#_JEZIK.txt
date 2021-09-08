@@ -474,8 +474,8 @@ int enemySpellDamage= 20;
 
 playerHP -= 2 * enemySpellDamage; // 60
 playerHP -= enemySpellDamage; // 40
-enemyHP1 = 2 * playerSpellDamage; // 30
-enemyHP2 = 5 * playerSpellDamage; // 0
+enemyHP1 -= 2 * playerSpellDamage; // 30
+enemyHP2 -= 5 * playerSpellDamage; // 0
 
 
 Player ima 40 HP-a, prvi neprijatelj 30 Hp-a a drugi 0 Hp-a nakon borbe.
@@ -2426,6 +2426,32 @@ Ako su kilobajti 3000 ispisati "3000 KB je 2 MB i 952 KB."
 
 Tip: 1 MB (MegaBajt) je 1024 KB (kiloBajta)
 
+public int unos; //Unos koliko kilobajta provjeravamo
+int kb;
+int mb;
+
+void Start()
+{
+	if(unos < 0)
+	{
+		Debug.Log("Broj ne valja");
+	}
+	
+	else if(unos > 0)
+	{
+		mb = (int)(unos / 1024); // <=> mb = unos / 1024; zato što su sve tri vrijenosti u int-u
+		kb = unos % 1024;
+		Debug.Log(unos + " KB je " + mb + " MB i " + kb + " KB.");
+	}
+	else
+	{
+		Debug.Log("0 KB je 0 MB i 0 KB.");
+	}
+}
+
+**DZ - 108. zadatak pretvorite da možete unjeti vrijednosti u bilokojoj veličin (KB (int), MB(int), GB(float), TB(float)) i pretvara koliko je to drugih veličina
+npr. unos 10 GB će biti ispis "10 GB je 0 TB, 10 GB, 10240 MB i 10485760 KB."
+unos 2.1 TB će biti ispis "2.1 TB je 2.1 TB, 2150,5 GB, 2202009 MB i 2254857830 KB."
 
 109.) Što ce uciniti ova metoda Update?
 
@@ -2443,19 +2469,168 @@ void Update()
 	}	
 }
 
+//Ako je igra buildana onda će što izaći iz igre / aplikacije, ali ako je u unityu onda će crashat unity jer je Infinty loop 
+
 110.) Neka je X 4, a Y 5 i neka se njihov zbroj izracuna u startu u varijablu Z, a onda neka se svaki frame Z uveca za X.
+
+int X = 4;
+int Y = 5;
+int Z;
+
+void Start()
+{
+	Z = X + Y;
+}
+
+void Update()
+{
+	Z += X;
+}
+
 
 111.) Napisi metodu Odbrojac koja odbrojava od 5 do 0 i koristi while petlju. Metoda ispisuje brojeve od 5 do 0.
 
-112.) Napiši for petlju koja prvi frame ispisuje neparne brojeve od x do y koji je 90.
+int n = 5;
+
+void Odbrojac()
+{
+	while(n >= 0)
+	{
+		Debug.Log(n);
+		n--;
+	}
+}
+
+---------for način-----------------
+
+int n = 5;
+
+void Odbrojac()
+{
+	for(int i = n; i >= 0; i--)
+	{
+		Debug.Log(i);
+	}
+}
+
+112.) Napiši for petlju koja prvi frame ispisuje neparne brojeve od x do y koji je 90 (y je 90).
+
+public int x;
+public int y = 90;
+
+void Start()
+{
+	for(int i = x; i < y; i++)
+	{
+		if(i % 2 != 0) //if(i % 2 == 1)
+		{
+			Debug.Log(i);
+		}
+	}
+}
 
 113.) Crashaj Unity! Ozbiljno, napiši skriptu za koju misliš da će 100% crashati unity. Slobodno koristi internet.
 
-114.) Ispišite sve brojeve od javne vrijednosti do nula (javna vrijesnot se može unjeti samo pozitivan broj)
+int x = 420;
+
+void Update()
+{
+	while(x > 0)
+	{
+		Application.ForceCrash();
+	}
+}
+
+114.) Ispišite sve brojeve od javne vrijednosti do nula (javna vrijednost se može unjeti samo pozitivan broj)
+
+public int unos;
+
+void Start()
+{
+	unos *= -1;
+	for(int i = unos; i < 0; i++)
+	{
+		Debug.Log(i);
+	}
+}
+
+----------Drugi slučaj----------
+
+public int unos;
+
+void Start()
+{
+	for(int i = unos; i > 0; i--)
+	{
+		Debug.Log(i);
+	}
+}
 
 115.) Ispišite sve parne vrijednosti od neke javne vrijednosti do 0
 
+public int x;
+
+void Start()
+{
+	for(int i = x; i > 0; i--)
+	{
+		if(i % 2 == 0)
+		{
+			Debug.Log(i);
+		}
+	}
+}
+
 116.) Neka se zbrajaju dva javna broja, ako je njihov zbroj veci od 15 neka bool endGame postane true, ako su manji ili jednaki neka je false. Ako je endGame true onda neka se ispiše u konzoli da je igra završena, a ako je false neka ispiše preživio si.
+
+public int x;
+public int y;
+
+bool endGame;
+
+void Start()
+{
+	if(x + y > 15)
+	{
+		endGame = true;
+		Debug.Log("Igra završena");
+	}
+	else if(x + y <= 15)
+	{
+		endGame = false;
+		Debug.Log("Preživio si");
+	}
+}
+
+
+*TEŠKI ZADATCI ZA KRAJ:
+
+117.) Isprogramirajte osnovni krizic kruzic. (bez programskog djela unosa X i O igraca).
+Dakle imajte dve javne vrijednosti za imena igraca. Imajte dodjelu koji je igrac X a koji O. Dodjelite vrijednosti svih 9 polja. Napravite svoju skriptu koja provjerava ako je jedan igrac napravio niz od 3 za pobjedu.
+
+118.) Napišite skriptu gdje igrac unosi 15 ocijena (Hrv, Mat, Eng itd.). U slucaju da ima 3 ili više jedinica neka mu se ispiše da pada razred, u suprotnom neka mu se izracuna prosjek.
+
+119.) Napravite program za upis u srednju školu. U inspectoru se unose vrijednosti hrv za 7 i 8 razred i isto tako za eng i matematiku. Zatim neka su dva javna stringa za dva predmeta koji se traze (npr. fizika i kemija) sa ocjenama iz 7 i 8 razreda. Zatim se gleda prosjek ocijena iz 5,6,7 i 8 razreda. Broj bodova je zbroj ocijena svih unesenih. Imajte provjeru da unesena ocijena mora biti veca od jedan i manja od 6.
+
+120.) Napišite skriptu koja ce nam imati sva obilježja championa iz MOBA tipa igre. Takoder pripremite i moci, dmg za njega sve potreben informacije koje smatrate da jedan MOBA champion ima. (Nemojte zaboraviti provjeru jel umro, respawn itd.) i sve iskomentirati.
+
+121.) Napišite skritpu gdje igrac unosi rijecima boju: (CRVENA, BIJELA, PLAVA, CRNA, ŽUTA, ZELENA) te mu se u konzoli za tu boju ispisuje HEX-a vrijednosti i RGB vrijednost kao npr.
+Unos = BIJELA
+U konzoli:
+R: 255, G: 255, B: 255
+#FFFFFF
+Vrijednosti mozete naci na internetu: 
+https://www.rapidtables.com/web/color/RGB_Color.html
+
+122.) Neka se upisuje vrijednost u intu, a zatim string sa igracevim imenom. Potom neka se za vrijednost inta ispise ime npr. ako je ime "Marko" a int 3 onda ce se ispisati:
+"MarkoMarkoMarko" i pohrati ce se vrijednost u string imena.
+
+123.) Rafaelina papiga, cije je ime Papigapapigapapigapapigapapiga, cim nauci neku novu rijec, pocinje je
+izgovarati uzastopno bez prestanka. Rafaela je uocila da ce papiga svaku rijec najprije izgovoriti tocno pet
+puta bez stanke. Na primjer, rijec „deda“ bit ce izgovorena kao „dedadedadedadedadeda“.
+Napiši program koji, za zadanu rijec, ispisuje papigin izgovor te rijeci.
+Npr. Deda - DedaDedaDedaDedaDeda, ho - hohohohoho
+
 
 
 
