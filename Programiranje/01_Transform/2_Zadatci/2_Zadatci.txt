@@ -1,16 +1,17 @@
 1.) Što je MonoBehaviour?
 
+Matična (bazna) klasa za ostale klase i naše skripte u Unityu iz koje proizlaze osnovne naredbe za Unity kao npr. iz zadatka 2.
 
 2.) Glavne funkcije/metode MonoBehavioura su i kada se odvijaju:
 
-- Start
-- Update
-- Awake
-- FixedUpdate
-- LateUpdate
-- OnEnable
-- OnDisable
-- OnGUI
+- Start - Prije prvog framea
+- Update - Svaki frame
+- Awake - Nulti frame
+- FixedUpdate - Svaki određni frame (interval - *za fiziku samo*)
+- LateUpdate - Na kraju svakog framea
+- OnEnable - Odvija se kada neki objekt (ili komponenta) postane aktivna i samo jednom se odvija
+- OnDisable - Odvija se kada neki objekt (ili komponenta) postane neaktivna i samo se jednom odvija
+- OnGUI - Poziva se nekoliko puta u frameu ovisno o težini(broju poligona i shadreima) objekta koji se renderira
 
 3.) Napišite skriptu koja će imati Debug.Log() na:
 a) Awake
@@ -21,7 +22,7 @@ c) Update
 a) Po X osi
 b) po Y osi
 c) Po X i Y osi
-D) Kada se rotira po X i Y osi, rotira li se i po Z?
+D) Kada se rotira po X i Y osi, rotira li se i po Z? 
 
 5.) Scejlajte kocku za:
 a) 0.25 po Y osi svaki frame
