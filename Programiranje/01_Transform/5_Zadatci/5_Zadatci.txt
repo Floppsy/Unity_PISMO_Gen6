@@ -33,8 +33,8 @@ Rj: 3
 
 4) Napišite skriptu koja će uzeti početne vrijednosti objekta na sceni (njegov scale) i invertati ga (sve scale vrijednosti postaviti na minus)
 
-5) Unesite neku javnu vrijednost, napravite for petlju u start metodi koja će služiti da se u svakom ponavljanju kocka poveća po x osi dok god je uvijet zadovoljen
+5) Unesite neku javnu vrijednost, napravite for petlju u start metodi koja će služiti da se u svakom ponavljanju kocka poveća po x osi za vrijednost i dok god je uvijet zadovoljen, i < javna vrijednost 
 
-6) Unesite neku javnu vrijednost, napravite for petlju u start metodi koja će služiti da se u svakom ponavljanju kocka smanji po y i z osi dok god je uvijet zadovoljen
+6) Unesite neku javnu vrijednost, napravite for petlju u start metodi koja će služiti da se u svakom ponavljanju kocka smanji po y i z osi za javnu vrijednost dok god je uvijet zadovoljen, uvijet je i <= 10
 
 7) Odradite ekvivalentni kod iz zadataka 5 i 6 koristeći while petlju
