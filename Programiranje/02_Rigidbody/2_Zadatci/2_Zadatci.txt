@@ -1,8 +1,8 @@
 Rigidbody 2 zadatci
 
-1. Učitajte rigidbody bez povlačenja
+1. Učitajte rigidbody bez povlačenja u inspector
 
-2. U skripti definirajte janvu varijablu "mass". Rigidbodyu povećajte težinu NA vrijednost javne varijable
+2. U skripti definirajte javnu varijablu "mass". Rigidbodyu povećajte težinu NA vrijednost javne varijable
 
 3. Rigidboyu na pritisak tipke "K" ukljucite ili iskljucite kinematiku, a na klik g uključite ili isključite gravitaciju
 
