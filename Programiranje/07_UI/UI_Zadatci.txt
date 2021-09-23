@@ -1,0 +1,5 @@
+1. Napravite skriptu koja ima javnu varijablu string.  U startu neka se na UI Textu prikaže unesena vrijenost varijable
+
+2. Napravite skriptu sa javnom vrijednoscu maxHp. Neka se na textu prikazuje "currentHP / maxHP". Kada igrac stisne tipku A neka se igracev Hp smanji za 5;
+
+3. 
