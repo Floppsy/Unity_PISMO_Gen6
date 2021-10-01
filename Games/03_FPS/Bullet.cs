@@ -19,10 +19,7 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             //Skinuti health enemyu
-            Destroy(this.gameObject);
-        }
-        else if(collision.gameObject.tag != "Enemy")
-        {
+            Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
     }
