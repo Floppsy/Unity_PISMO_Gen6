@@ -19,7 +19,12 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             //Skinuti health enemyu
-            Destroy(collision.gameObject);
+            Enemy enemyHealth = collision.gameObject.GetComponent<Enemy>();
+            enemyHealth.health -= (int)damage;
+            Destroy(this.gameObject);
+        }
+        else if(collision.gameObject.tag != "Enemy")
+        {
             Destroy(this.gameObject);
         }
     }
