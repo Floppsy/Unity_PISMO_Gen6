@@ -16,17 +16,14 @@ public class AutoFocus : MonoBehaviour
 
     private void OnVuforiaStarted()
     {
-        CameraDevice.Instance.SetFocusMode(
-            CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
+        CameraDevice.Instance.SetFocusMode(FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
     }
 
     private void OnPaused(bool paused)
     {
-        if (!paused) // resumed
+        if (!paused)
         {
-            // Set again autofocus mode when app is resumed
-            CameraDevice.Instance.SetFocusMode(
-               CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
+            CameraDevice.Instance.SetFocusMode(FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
         }
     }
 }
