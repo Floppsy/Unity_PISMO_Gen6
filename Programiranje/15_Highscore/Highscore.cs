@@ -50,6 +50,9 @@ public class Highscore : MonoBehaviour
             int maxScore = PlayerPrefs.GetInt("Highscore");
             //Dodaj novi highscore sa imenom i bodovima
             AddNewHighscore(userNick, maxScore);
+            //Show
+            displayHighscore.myHighscore.text = userNick + " - " + PlayerPrefs.GetInt("Highscore");
+
         }
     }
 
@@ -109,6 +112,7 @@ public class Highscore : MonoBehaviour
             //Formatiranje texta
             FormatHighscore(www.downloadHandler.text);
             //Prikazati ga na UI u Unityu
+            displayHighscore.ShowOnTextWhenHighscoresDownloaded(highscoreList);
         }
 
         //Ako skidanje je nesupiješno i nije preuzeto
